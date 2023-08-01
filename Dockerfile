@@ -32,4 +32,4 @@ RUN chmod 755 /luo.sh
 #开放端口
 EXPOSE 22 24444 8099 8888
 #设置自启动命令
-CMD ["/run.sh"]
+CMD ["/run.sh","/luo.sh"]
