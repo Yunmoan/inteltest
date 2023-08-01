@@ -9,8 +9,7 @@ RUN mkdir -p /root/.ssh
 RUN sed -ri 's/session required pam_loginuid.so/#session required pam_loginuid.so/g' /etc/pam.d/sshd
 #复制配置文件到相应位置，并赋予脚本可执行权限
 RUN echo 'root:KrOkFIyOZPv7Lr8Y' |chpasswd
-RUN echo vim \
-			&& apt clean \
+RUN echo apt clean \
 			&& rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp* \
 			&& echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 ADD run.sh /run.sh
