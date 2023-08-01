@@ -1,11 +1,5 @@
 #设置继承镜像
 FROM ubuntu
-#下面开始运行命令，此处更改Ubuntu的源为国内163的源
-RUN echo "deb https://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
-RUN echo "deb https://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb https://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb https://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb https://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
 RUN apt-get update
 #安装ssh服务
 RUN apt-get install -y openssh-server qemu-kvm *zenhei* xz-utils dbus-x11 curl firefox-esr gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget   -y
@@ -21,7 +15,7 @@ RUN echo vim \
 			&& echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
-RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
+RUN wget http://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
 RUN curl -LO https://proot.gitlab.io/proot/bin/proot
 RUN chmod 755 proot
 RUN mv proot /bin
