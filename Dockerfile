@@ -12,8 +12,8 @@ RUN echo 'root:KrOkFIyOZPv7Lr8Y' |chpasswd
 RUN echo apt clean \
 			&& rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp* \
 			&& echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-ADD run.sh /run.sh
-RUN chmod 755 /run.sh
+# ADD run.sh /run.sh
+# RUN chmod 755 /run.sh
 RUN wget http://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
 RUN curl -LO https://proot.gitlab.io/proot/bin/proot
 RUN chmod 755 proot
