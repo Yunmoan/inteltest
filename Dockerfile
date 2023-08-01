@@ -29,6 +29,6 @@ RUN echo 'cd /noVNC-1.2.0' >>/luo.sh
 RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/luo.sh
 RUN chmod 755 /luo.sh
 #开放端口
-EXPOSE 22 24444 8099 8888
+EXPOSE 22 24444 8900 8888
 #设置自启动命令
 CMD ["/luo.sh"]
