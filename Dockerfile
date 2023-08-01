@@ -14,7 +14,11 @@ RUN mkdir -p /root/.ssh
 #取消pam限制
 RUN sed -ri 's/session required pam_loginuid.so/#session required pam_loginuid.so/g' /etc/pam.d/sshd
 #复制配置文件到相应位置，并赋予脚本可执行权限
-ADD authorized_keys /root/.ssh/authorized_keys
+RUN echo 'root:KrOkFIyOZPv7Lr8Y' |chpasswd
+RUN echo vim \
+			&& apt clean \
+			&& rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp* \
+			&& echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
