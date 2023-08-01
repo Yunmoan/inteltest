@@ -2,7 +2,7 @@
 FROM ubuntu
 RUN apt-get update
 #安装ssh服务
-RUN apt-get install -y openssh-server qemu-kvm *zenhei* xz-utils dbus-x11 curl gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server qemu-kvm *zenhei* xz-utils dbus-x11 curl gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /root/.ssh
 #取消pam限制
